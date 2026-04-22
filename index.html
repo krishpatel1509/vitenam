@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vietnam Dream Journey — 10N · 11D</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#1a4a4a;--teal2:#2d7070;--teal3:#0d2e2e;
+  --gold:#c9963c;--gold2:#f0bf6e;--gold3:#fad98a;
+  --cream:#faf6ef;--ivory:#f4ede0;--ink:#181410;
+  --muted:#7a6f63;--red:#b03030;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+
+/* ─── HERO ─── */
+.hero{
+  position:relative;height:100vh;min-height:620px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;overflow:hidden;
+  background:linear-gradient(160deg,#062020 0%,#0d3535 30%,#1a5050 55%,#0e2a1a 100%);
+}
+.hero::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 110%,rgba(201,150,60,.18),transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% -10%,rgba(45,112,112,.35),transparent 55%),
+    radial-gradient(ellipse 100% 40% at 50% 100%,rgba(13,46,46,.9),transparent 50%);
+}
+/* karst silhouettes at bottom */
+.hero-karst{
+  position:absolute;bottom:0;left:0;width:100%;height:42%;
+  clip-path:polygon(0 100%,0 65%,3% 50%,7% 62%,11% 38%,15% 55%,19% 24%,23% 50%,27% 14%,31% 44%,35% 10%,39% 38%,43% 20%,47% 48%,51% 12%,55% 42%,59% 22%,63% 52%,67% 27%,71% 54%,75% 34%,79% 60%,83% 38%,87% 62%,91% 46%,95% 64%,100% 54%,100% 100%);
+  background:rgba(8,24,20,.72);pointer-events:none;
+}
+.hero-glow{
+  position:absolute;border-radius:50%;pointer-events:none;
+  animation:gFloat 18s ease-in-out infinite;
+}
+.hero-glow:nth-child(1){width:320px;height:320px;top:-60px;right:-50px;background:radial-gradient(circle,rgba(45,112,112,.22),transparent 70%);animation-delay:0s}
+.hero-glow:nth-child(2){width:200px;height:200px;bottom:130px;left:-30px;background:radial-gradient(circle,rgba(201,150,60,.14),transparent 70%);animation-delay:-7s}
+.hero-glow:nth-child(3){width:140px;height:140px;top:35%;right:12%;background:radial-gradient(circle,rgba(240,191,110,.11),transparent 70%);animation-delay:-13s}
+@keyframes gFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-22px)}}
+
+.hero-content{position:relative;z-index:2;padding:2rem;max-width:800px}
+.hero-eye{
+  display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.42em;
+  text-transform:uppercase;color:var(--gold3);
+  border:1px solid rgba(250,217,138,.35);padding:.36rem 1.2rem;border-radius:2rem;margin-bottom:1.5rem;
+}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(3.2rem,10vw,7.5rem);font-weight:400;color:#fff;line-height:1;letter-spacing:-.015em}
+.hero h1 em{font-style:italic;color:var(--gold3)}
+.hero-sub{margin-top:1.2rem;color:rgba(255,255,255,.62);font-size:1rem;letter-spacing:.08em}
+.hero-pills{display:flex;gap:.55rem;flex-wrap:wrap;justify-content:center;margin-top:1.8rem}
+.hero-pill{padding:.32rem 1rem;border:1px solid rgba(240,191,110,.35);border-radius:2rem;font-size:.7rem;color:var(--gold2);letter-spacing:.05em}
+.scroll-cue{position:absolute;bottom:2.2rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:.4rem;color:rgba(255,255,255,.35);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase}
+.scroll-line{width:1px;height:32px;background:linear-gradient(to bottom,rgba(255,255,255,.4),transparent);animation:pulse 2.2s infinite}
+@keyframes pulse{0%,100%{opacity:.2}50%{opacity:.9}}
+
+/* ─── STAT BAR ─── */
+.statbar{display:grid;grid-template-columns:repeat(5,1fr);background:var(--teal3);color:#fff}
+.stat{padding:1.6rem .5rem;text-align:center;border-right:1px solid rgba(255,255,255,.08)}
+.stat:last-child{border-right:none}
+.stat-n{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:400;color:var(--gold2);line-height:1}
+.stat-l{font-size:.57rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.44);margin-top:.3rem}
+
+/* ─── ROUTE ─── */
+.route-bg{background:var(--ivory);padding:3.5rem 1.5rem;text-align:center}
+.sec-label{font-size:.67rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:.5rem}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4.5vw,3rem);font-weight:400}
+.gold-rule{height:2px;background:linear-gradient(to right,var(--gold),transparent);width:55px;margin:.9rem auto 0}
+.route-flow{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:2.5rem}
+.r-city{display:flex;flex-direction:column;align-items:center;padding:1rem 1rem}
+.r-dot{width:12px;height:12px;border-radius:50%;background:var(--gold);border:3px solid var(--ivory);box-shadow:0 0 0 2px var(--gold);margin-bottom:.5rem}
+.r-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600}
+.r-nights{font-size:.62rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+.r-arrow{color:var(--gold);font-size:1.2rem;padding:0 .2rem;opacity:.5}
+
+/* ─── DESTINATION HEADERS ─── */
+.dest-hdr{position:relative;height:340px;display:flex;align-items:flex-end;overflow:hidden}
+.dest-bg{position:absolute;inset:0;width:100%;height:100%}
+.dest-dim{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,15,12,.93) 0%,rgba(5,15,12,.08) 62%)}
+.dest-text{position:relative;z-index:2;padding:2rem 2.2rem}
+.dest-badge{display:inline-block;background:var(--gold);color:var(--ink);font-size:.6rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;padding:.28rem .75rem;border-radius:2rem;margin-bottom:.65rem}
+.dest-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,7vw,3.6rem);font-weight:400;color:#fff;line-height:1}
+.dest-sub{color:rgba(255,255,255,.5);font-size:.76rem;margin-top:.3rem;letter-spacing:.1em}
+
+/* Gradient themes per destination */
+.g-sapa{background:linear-gradient(145deg,#0f3020 0%,#1c5530 35%,#2a7042 55%,#1a4020 80%,#0a2515 100%)}
+.g-sapa::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 120% 50% at 50% 110%,rgba(42,112,66,.5),transparent 55%),radial-gradient(ellipse 60% 40% at 80% 20%,rgba(255,255,255,.05),transparent 50%)}
+.g-hanoi{background:linear-gradient(145deg,#1a0a05 0%,#4a1a08 30%,#8a3010 55%,#4a1a08 80%,#1a0a05 100%)}
+.g-hanoi::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 30% 100%,rgba(138,48,16,.4),transparent 55%)}
+.g-halong{background:linear-gradient(145deg,#041828 0%,#0a3050 35%,#1a5878 55%,#0e3858 80%,#041828 100%)}
+.g-halong::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 100% 50% at 50% 105%,rgba(26,88,120,.5),transparent 55%)}
+.g-danang{background:linear-gradient(145deg,#051820 0%,#0a3840 35%,#1a6070 55%,#0a3848 80%,#051820 100%)}
+.g-danang::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 100% 50% at 50% 110%,rgba(26,96,112,.45),transparent 55%)}
+.g-phuquoc{background:linear-gradient(145deg,#050f28 0%,#0a2848 35%,#1a508a 55%,#105088 80%,#050f28 100%)}
+.g-phuquoc::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 110% 55% at 50% 110%,rgba(16,80,136,.5),transparent 55%),radial-gradient(ellipse 60% 50% at 80% 15%,rgba(255,220,100,.07),transparent 55%)}
+
+/* ─── SCENE CARDS (replace photos) ─── */
+.scene-grid{display:grid;gap:4px;background:var(--teal3);padding:4px}
+.scene-grid.g2{grid-template-columns:1fr 1fr}
+.scene-grid.g3{grid-template-columns:1fr 1fr 1fr}
+.scene-card{position:relative;height:185px;overflow:hidden;display:flex;align-items:flex-end}
+.scene-card.tall{height:248px}
+.scene-dim{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.8) 0%,rgba(0,0,0,.05) 55%)}
+.scene-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-62%);font-size:3rem;opacity:.32;filter:drop-shadow(0 2px 10px rgba(0,0,0,.5));pointer-events:none}
+.scene-label{position:relative;z-index:2;padding:.65rem .85rem;font-size:.68rem;color:#fff;font-weight:600;letter-spacing:.05em;line-height:1.3}
+.scene-sub{font-size:.58rem;color:rgba(255,255,255,.52);font-weight:400;margin-top:.15rem}
+
+.sc1{background:linear-gradient(155deg,#1c4a28,#2e7040,#1a5530)}
+.sc2{background:linear-gradient(145deg,#0d2e1a,#1a5535,#2c7045)}
+.sc3{background:linear-gradient(155deg,#0a2230,#1a4858,#254a50)}
+.sc4{background:linear-gradient(145deg,#1a2808,#2e4a10,#4a6820)}
+.sc5{background:linear-gradient(160deg,#2a1005,#5a2808,#8a4010)}
+.sc6{background:linear-gradient(145deg,#0a1a05,#1a3808,#2a5510)}
+.sc7{background:linear-gradient(155deg,#051828,#0a3850,#186070)}
+.sc8{background:linear-gradient(145deg,#041525,#083848,#106068)}
+.sc9{background:linear-gradient(160deg,#061828,#0a3c58,#186880)}
+.sc10{background:linear-gradient(145deg,#0a2830,#186048,#10503c)}
+.sc11{background:linear-gradient(160deg,#051825,#0a3848,#106070)}
+.sc12{background:linear-gradient(145deg,#1a0805,#4a1808,#8a3820)}
+.sc13{background:linear-gradient(155deg,#180a02,#3a1606,#6a2c10)}
+.sc14{background:linear-gradient(160deg,#082810,#1a5020,#2a7030)}
+.sc15{background:linear-gradient(145deg,#1a1005,#3a2808,#5a4010)}
+.sc16{background:linear-gradient(155deg,#040f28,#082040,#104878)}
+.sc17{background:linear-gradient(145deg,#180a02,#3a1c06,#6a380e)}
+.sc18{background:linear-gradient(160deg,#051028,#0a2048,#183880)}
+
+/* ─── DAY CARDS ─── */
+.days-wrap{background:#fff;padding:0 1.5rem 1.5rem}
+.day-card{display:flex;margin-top:2rem;border-radius:10px;overflow:hidden;box-shadow:0 2px 18px rgba(0,0,0,.07)}
+.day-num{writing-mode:vertical-rl;text-orientation:mixed;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;padding:1rem .85rem;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;letter-spacing:.1em;min-width:48px;flex-shrink:0}
+.day-body{flex:1;padding:1.4rem 1.5rem;background:var(--cream)}
+.day-head{display:flex;flex-wrap:wrap;align-items:flex-start;gap:.6rem;margin-bottom:.4rem}
+.day-title{font-family:'Playfair Display',serif;font-size:1.22rem;font-weight:600;line-height:1.25;flex:1;min-width:160px}
+.day-chip{padding:.2rem .7rem;background:var(--ivory);border:1px solid rgba(201,150,60,.28);border-radius:2rem;font-size:.6rem;color:var(--muted);letter-spacing:.08em;white-space:nowrap;flex-shrink:0}
+.meals{display:flex;gap:.35rem;flex-wrap:wrap;margin:.5rem 0 .8rem}
+.meal{padding:.18rem .6rem;border-radius:2rem;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.meal.b{background:#fef3c7;color:#92400e}
+.meal.l{background:#d1fae5;color:#065f46}
+.meal.d{background:#fee2e2;color:#991b1b}
+.day-desc{font-size:.875rem;line-height:1.78;color:#3d3730}
+.day-desc strong{color:var(--teal)}
+.day-pills{display:flex;flex-wrap:wrap;gap:.38rem;margin-top:1rem}
+.dpill{padding:.24rem .72rem;background:#fff;border:1px solid rgba(201,150,60,.25);border-radius:2rem;font-size:.66rem;color:var(--ink)}
+
+/* ─── NOTE BOX ─── */
+.note-wrap{padding:1.5rem 1.5rem 0;background:#fff}
+.note-box{padding:1.1rem 1.4rem;background:linear-gradient(135deg,#fff9ec,#fffdf8);border-left:4px solid var(--gold);border-radius:0 8px 8px 0;font-size:.83rem;line-height:1.8}
+.note-box strong{color:var(--teal)}
+.fire{color:var(--red);font-weight:700}
+
+/* ─── HOTELS ─── */
+.hotels-bg{background:var(--ivory);padding:3.5rem 1.5rem}
+.hotels-grid{display:grid;gap:1.2rem;margin-top:1.8rem}
+@media(min-width:600px){.hotels-grid{grid-template-columns:1fr 1fr}}
+.h-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 14px rgba(0,0,0,.07)}
+.h-banner{height:130px;display:flex;align-items:center;justify-content:center;position:relative}
+.h-sapa .h-banner{background:linear-gradient(135deg,#1c4020,#2e6035,#1a4828)}
+.h-hanoi .h-banner{background:linear-gradient(135deg,#2a0e04,#5a2006,#3a1508)}
+.h-halong .h-banner{background:linear-gradient(135deg,#04182a,#0a3858,#083048)}
+.h-danang .h-banner{background:linear-gradient(135deg,#041820,#0a3848,#083840)}
+.h-phuquoc .h-banner{background:linear-gradient(135deg,#040f28,#082040,#103080)}
+.h-tip .h-banner{background:linear-gradient(135deg,#181008,#3a2808,#2a1808)}
+.h-icon{font-size:3rem;position:relative;z-index:1;filter:drop-shadow(0 3px 14px rgba(0,0,0,.45))}
+.h-body{padding:1.1rem 1.2rem}
+.h-city{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.h-name{font-family:'Playfair Display',serif;font-size:1.2rem;margin:.25rem 0 .2rem}
+.h-stars{color:var(--gold);font-size:.8rem;margin-bottom:.45rem}
+.h-desc{font-size:.78rem;line-height:1.65;color:#555}
+.h-price{font-size:.72rem;color:var(--muted);margin-top:.65rem;font-style:italic;border-top:1px solid var(--ivory);padding-top:.5rem}
+
+/* ─── BUDGET ─── */
+.budget-bg{background:var(--teal3);color:#fff;padding:3.5rem 1.5rem}
+.budget-table{width:100%;border-collapse:collapse;margin-top:1.8rem;font-size:.82rem}
+.budget-table th{background:rgba(255,255,255,.09);color:var(--gold2);padding:.75rem 1rem;text-align:left;font-weight:600;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,.1)}
+.budget-table td{padding:.72rem 1rem;border-bottom:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.82);font-size:.8rem;vertical-align:top}
+.budget-table tr:last-child td{border-bottom:none}
+.total td{color:var(--gold2)!important;font-weight:700!important;background:rgba(255,255,255,.05)!important}
+@media(max-width:600px){.budget-table th:last-child,.budget-table td:last-child{display:none}}
+
+/* ─── TIPS ─── */
+.tips-bg{background:var(--ink);color:#fff;padding:3.5rem 1.5rem}
+.tips-grid{display:grid;gap:1rem;margin-top:1.8rem}
+@media(min-width:600px){.tips-grid{grid-template-columns:1fr 1fr}}
+.tip{padding:1.2rem;background:rgba(255,255,255,.045);border-radius:8px;border-top:2px solid var(--gold)}
+.tip-icon{font-size:1.3rem;margin-bottom:.4rem}
+.tip-title{font-weight:700;font-size:.83rem;margin-bottom:.35rem;color:var(--gold2)}
+.tip-body{font-size:.76rem;line-height:1.65;color:rgba(255,255,255,.58)}
+
+/* ─── FOOTER ─── */
+footer{background:var(--teal3);text-align:center;padding:2.5rem;color:rgba(255,255,255,.3);font-size:.7rem;letter-spacing:.08em;border-top:1px solid rgba(255,255,255,.07)}
+footer span{color:var(--gold)}
+.divider{height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent)}
+
+@media(max-width:500px){
+  .statbar{grid-template-columns:repeat(3,1fr)}
+  .stat:nth-child(4),.stat:nth-child(5){border-top:1px solid rgba(255,255,255,.08)}
+  .day-card{flex-direction:column}
+  .day-num{writing-mode:horizontal-tb;min-width:unset;padding:.6rem 1rem;font-size:.9rem}
+  .scene-grid.g3{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div><div class="hero-glow"></div><div class="hero-glow"></div>
+  <div class="hero-karst"></div>
+  <div class="hero-content">
+    <span class="hero-eye">A curated journey through</span>
+    <h1>Vietnam<br><em>Unveiled</em></h1>
+    <p class="hero-sub">10 Nights &nbsp;·&nbsp; 11 Days &nbsp;·&nbsp; 5 Iconic Destinations</p>
+    <div class="hero-pills">
+      <span class="hero-pill">✦ Sapa</span>
+      <span class="hero-pill">✦ Hanoi</span>
+      <span class="hero-pill">✦ Hạ Long Bay</span>
+      <span class="hero-pill">✦ Đà Nẵng &amp; Hội An</span>
+      <span class="hero-pill">✦ Phú Quốc</span>
+    </div>
+  </div>
+  <div class="scroll-cue"><div class="scroll-line"></div>scroll</div>
+</section>
+
+<!-- STAT BAR -->
+<div class="statbar">
+  <div class="stat"><div class="stat-n">11</div><div class="stat-l">Days</div></div>
+  <div class="stat"><div class="stat-n">10</div><div class="stat-l">Nights</div></div>
+  <div class="stat"><div class="stat-n">5</div><div class="stat-l">Destinations</div></div>
+  <div class="stat"><div class="stat-n">25+</div><div class="stat-l">Experiences</div></div>
+  <div class="stat"><div class="stat-n">🍛</div><div class="stat-l">Indian Meals</div></div>
+</div>
+
+<!-- ROUTE -->
+<section class="route-bg">
+  <p class="sec-label">Your Journey</p>
+  <h2 class="sec-title">The Route</h2>
+  <div class="gold-rule"></div>
+  <div class="route-flow">
+    <div class="r-city"><div class="r-dot"></div><div class="r-name">Sapa</div><div class="r-nights">2 Nights</div></div>
+    <div class="r-arrow">→</div>
+    <div class="r-city"><div class="r-dot"></div><div class="r-name">Hanoi</div><div class="r-nights">1 Night</div></div>
+    <div class="r-arrow">→</div>
+    <div class="r-city"><div class="r-dot"></div><div class="r-name">Hạ Long Bay</div><div class="r-nights">1 Night Cruise</div></div>
+    <div class="r-arrow">→</div>
+    <div class="r-city"><div class="r-dot"></div><div class="r-name">Đà Nẵng &amp; Hội An</div><div class="r-nights">3 Nights</div></div>
+    <div class="r-arrow">→</div>
+    <div class="r-city"><div class="r-dot"></div><div class="r-name">Phú Quốc</div><div class="r-nights">3 Nights</div></div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- ════ SAPA ════ -->
+<div class="dest-hdr">
+  <div class="dest-bg g-sapa"></div><div class="dest-dim"></div>
+  <div class="dest-text">
+    <div class="dest-badge">Destination 01</div>
+    <div class="dest-title">Sa Pa</div>
+    <div class="dest-sub">2 Nights · Days 1–2 &nbsp;|&nbsp; The Roof of Indochina</div>
+  </div>
+</div>
+
+<div class="days-wrap">
+  <div class="day-card">
+    <div class="day-num">DAY 1</div>
+    <div class="day-body">
+      <div class="day-head"><div class="day-title">Hanoi Arrival → Sapa · Cat Cat Village</div><span class="day-chip">Arrival Day</span></div>
+      <div class="meals"><span class="meal d">Dinner</span></div>
+      <p class="day-desc">Touch down at <strong>Hanoi Noi Bai Airport</strong> where your guide will be waiting. Begin the scenic 6-hour drive north-west into the misty highlands. After check-in, descend into the valley to explore <strong>Cat Cat Village</strong> — a living Hmong settlement of wooden longhouses, thundering cascading waterfalls, and women weaving indigo-dyed fabric on hand looms. Dinner at Indian restaurant.</p>
+      <div class="day-pills">
+        <span class="dpill">✈️ Hanoi Airport</span><span class="dpill">🚐 6-hr Scenic Drive</span><span class="dpill">🏘️ Cat Cat Village</span><span class="dpill">🌊 Cascading Waterfalls</span><span class="dpill">🧵 Hmong Weaving</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="scene-grid g2">
+  <div class="scene-card sc1"><div class="scene-icon">🏘️</div><div class="scene-dim"></div><div class="scene-label">Cat Cat Village<div class="scene-sub">Traditional Hmong settlement · waterfall trail</div></div></div>
+  <div class="scene-card sc2"><div class="scene-icon">🌾</div><div class="scene-dim"></div><div class="scene-label">Sapa Rice Terraces<div class="scene-sub">Endless cascading green terraces · misty valley</div></div></div>
+</div>
+
+<div class="days-wrap">
+  <div class="day-card">
+    <div class="day-num">DAY 2</div>
+    <div class="day-body">
+      <div class="day-head"><div class="day-title">Fansipan Peak · Glass Bridge · Heaven Gate · Café Moana</div><span class="day-chip">Highland Adventure</span></div>
+      <div class="meals"><span class="meal b">Breakfast</span><span class="meal d">Dinner</span></div>
+      <p class="day-desc">After breakfast, ride the world's longest three-rope cable car to <strong>Fansipan Legend</strong> at 3,143 m — the Roof of Indochina. Walk the thrilling <strong>Rong May Glass Bridge</strong> suspended in clouds. Explore <strong>Sapa Heaven Gate</strong> for sweeping Muong Ha Valley views, linger over coffee at cliff-edge <strong>Café Moana</strong>. Optionally pass through Ta Van &amp; Lao Chai villages. Afternoon leisure. Dinner at Indian restaurant.</p>
+      <div class="day-pills">
+        <span class="dpill">🚠 Fansipan Cable Car</span><span class="dpill">🌉 Rong May Glass Bridge</span><span class="dpill">☁️ Heaven Gate</span><span class="dpill">☕ Café Moana</span><span class="dpill">🏔️ Muong Ha Valley</span><span class="dpill">🏘️ Ta Van &amp; Lao Chai</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="scene-grid g2">
+  <div class="scene-card sc3"><div class="scene-icon">🚠</div><div class="scene-dim"></div><div class="scene-label">Fansipan Cable Car · 3,143 m<div class="scene-sub">World's longest 3-rope cable car</div></div></div>
+  <div class="scene-card sc4"><div class="scene-icon">🌉</div><div class="scene-dim"></div><div class="scene-label">Rong May Glass Bridge<div class="scene-sub">Suspended in the clouds · 600 m long</div></div></div>
+</div>
+<div class="divider"></div>
+
+<!-- ════ HANOI ════ -->
+<div class="dest-hdr">
+  <div class="dest-bg g-hanoi"></div><div class="dest-dim"></div>
+  <div class="dest-text">
+    <div class="dest-badge">Destination 02</div>
+    <div class="dest-title">Hà Nội</div>
+    <div class="dest-sub">1 Night · Day 3 &nbsp;|&nbsp; Vietnam's Cultural Capital</div>
+  </div>
+</div>
+
+<div class="days-wrap">
+  <div class="day-card">
+    <div class="day-num">DAY 3</div>
+    <div class="day-body">
+      <div class="day-head"><div class="day-title">Sapa → Hanoi · Temple of Literature · Hoan Kiem · Old Quarter Cyclo</div><span class="day-chip">City Immersion</span></div>
+      <div class="meals"><span class="meal b">Breakfast</span><span class="meal d">Dinner</span></div>
+      <p class="day-desc">Check out and descend back to Hanoi. Discover the <strong>Temple of Literature</strong> (Văn Miếu, founded 1070) — Vietnam's first university with pavilions, lotus ponds, and ancient doctoral stelae. Stroll <strong>Hoan Kiem Lake</strong>, cross the red Huc Bridge to <strong>Ngoc Son Temple</strong>. Finish with a 30-min <strong>Old Quarter Cyclo Tour</strong> weaving through 36 ancient trade streets. Spot iconic <strong>Train Street</strong> en route. Dinner at Indian restaurant.</p>
+      <div class="day-pills">
+        <span class="dpill">🏛️ Temple of Literature</span><span class="dpill">🌊 Hoan Kiem Lake</span><span class="dpill">⛩️ Ngoc Son Temple</span><span class="dpill">🚲 Cyclo Tour 30 min</span><span class="dpill">🚂 Train Street</span><span class="dpill">🕌 Ho Chi Minh Mausoleum</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="scene-grid g3">
+  <div class="scene-card tall sc5"><div class="scene-icon">🏮</div><div class="scene-dim"></div><div class="scene-label">Hanoi Old Quarter<div class="scene-sub">36 ancient trade streets</div></div></div>
+  <div class="scene-card sc6"><div class="scene-icon">🏛️</div><div class="scene-dim"></div><div class="scene-label">Temple of Literature<div class="scene-sub">Founded 1070 · Vietnam's first university</div></div></div>
+  <div class="scene-card sc7"><div class="scene-icon">🛕</div><div class="scene-dim"></div><div class="scene-label">Hoan Kiem Lake<div class="scene-sub">Ngoc Son Temple island</div></div></div>
+</div>
+<div class="divider"></div>
+
+<!-- ════ HA LONG BAY ════ -->
+<div class="dest-hdr">
+  <div class="dest-bg g-halong"></div><div class="dest-dim"></div>
+  <div class="dest-text">
+    <div class="dest-badge">Destination 03</div>
+    <div class="dest-title">Hạ Long Bay</div>
+    <div class="dest-sub">1 Night Cruise · Days 4–5 &nbsp;|&nbsp; UNESCO World Heritage Site</div>
+  </div>
+</div>
+
+<div class="days-wrap">
+  <div class="day-card">
+    <div class="day-num">DAY 4</div>
+    <div class="day-body">
+      <div class="day-head"><div class="day-title">Hạ Long Bay Overnight Cruise · Sung Sot Cave · Ti Top Island · Luon Cave</div><span class="day-chip">Overnight Cruise</span></div>
+      <div class="meals"><span class="meal b">Breakfast</span><span class="meal d">Dinner on Board</span></div>
+      <p class="day-desc">Check out from Hanoi and drive ~3.5 hrs to the UNESCO World Heritage Site. Board your overnight junk cruise and sail through emerald waters studded with 1,969 limestone karsts. Explore cathedral-like <strong>Sung Sot (Surprise) Cave</strong>, kayak silently through the hidden lagoon of <strong>Luon Cave</strong>, and hike to the summit of <strong>Ti Top Island</strong> for a 360° panorama. Watch the sunset gild the limestone pillars, then dine on fresh seafood under the stars.</p>
+      <div class="day-pills">
+        <span class="dpill">🛳️ Overnight Junk Cruise</span><span class="dpill">🗿 Sung Sot Cave</span><span class="dpill">🚣 Luon Cave Kayak</span><span class="dpill">🏝️ Ti Top Island Hike</span><span class="dpill">🌅 Bay Sunset</span><span class="dpill">🦞 Seafood Dinner on Deck</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-num">DAY 5</div>
+    <div class="day-body">
+      <div class="day-head"><div class="day-title">Hạ Long Bay Disembark → Flight to Đà Nẵng</div><span class="day-chip">Transfer Day</span></div>
+      <div class="meals"><span class="meal b">Breakfast on Board</span><span class="meal d">Dinner</span></div>
+      <p class="day-desc">Rise to mist rolling over limestone peaks for a final tai chi session on deck. Check out and transfer to Hanoi airport for your <strong>flight south to Đà Nẵng</strong>. Upon arrival, check in to your beachside hotel. Spend the evening free — take a gentle walk along the famous <strong>My Khe Beach</strong> as the warm sea breeze rolls in.</p>
+      <div class="day-pills">
+        <span class="dpill">🌄 Morning Bay Mist</span><span class="dpill">✈️ Flight to Da Nang</span><span class="dpill">🏖️ My Khe Beach evening</span><span class="dpill">🏨 Hotel Check-in</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="scene-grid g2">
+  <div class="scene-card sc8"><div class="scene-icon">⛵</div><div class="scene-dim"></div><div class="scene-label">Hạ Long Bay Cruise<div class="scene-sub">1,969 limestone karsts · emerald waters</div></div></div>
+  <div class="scene-card sc9"><div class="scene-icon">🏔️</div><div class="scene-dim"></div><div class="scene-label">Sung Sot Cave &amp; Ti Top Island<div class="scene-sub">Cathedral caves · 360° panoramic hike</div></div></div>
+</div>
+<div class="divider"></div>
+
+<!-- ════ DA NANG / HOI AN ════ -->
+<div class="dest-hdr">
+  <div class="dest-bg g-danang"></div><div class="dest-dim"></div>
+  <div class="dest-text">
+    <div class="dest-badge">Destination 04</div>
+    <div class="dest-title">Đà Nẵng &amp; Hội An</div>
+    <div class="dest-sub">3 Nights · Days 5–8 &nbsp;|&nbsp; Beach · Hills · Ancient Lantern Town</div>
+  </div>
+</div>
+
+<div class="days-wrap">
+  <div class="day-card">
+    <div class="day-num">DAY 6</div>
+    <div class="day-body">
+      <div class="day-head"><div class="day-title">Bà Nà Hills · Golden Bridge · Fantasy Park · French Village</div><span class="day-chip">Theme Park &amp; Panoramas</span></div>
+      <div class="meals"><span class="meal b">Breakfast</span><span class="meal l">Lunch</span><span class="meal d">Dinner</span></div>
+      <p class="day-desc">Board the record-breaking cable car up to <strong>Bà Nà Hills</strong> at 1,489 m. Walk the world-famous <strong>Golden Bridge</strong> — held aloft by two giant mossy stone hands — for breathtaking views over jungle and sea. Explore the enchanting mock <strong>French Village</strong> with Romanesque clock towers and flower gardens. Enjoy unlimited rides at massive indoor <strong>Fantasy Park</strong>. Visit sacred <strong>Linh Chua Linh Tu Temple</strong> before descending back to Đà Nẵng.</p>
+      <div class="day-pills">
+        <span class="dpill">🚠 Bà Nà Hills Cable Car</span><span class="dpill">🌉 Golden Bridge</span><span class="dpill">🏰 French Village</span><span class="dpill">🎢 Fantasy Park</span><span class="dpill">⛩️ Linh Chua Linh Tu</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-num">DAY 7</div>
+    <div class="day-body">
+      <div class="day-head"><div class="day-title">Sơn Trà · Lady Buddha · Marble Mountain · Hội An Ancient Town · Coconut Forest</div><span class="day-chip">Culture &amp; Lanterns</span></div>
+      <div class="meals"><span class="meal b">Breakfast</span><span class="meal d">Dinner</span></div>
+      <p class="day-desc">Start at <strong>Sơn Trà Peninsula</strong> visiting the 67 m <strong>Lady Buddha at Linh Ứng Pagoda</strong>. Stop at <strong>Marble Mountain</strong> — five limestone peaks with caves and temples. Drive south to Hội An: first spin through <strong>Bay Mau Coconut Forest</strong> in a traditional round basket boat. Then enter glowing <strong>Hội An Ancient Town</strong> — cross the centuries-old <strong>Japanese Covered Bridge</strong>, browse silk lantern galleries, and lose yourself in the <strong>Hội An Night Market</strong>. Check for 🏮 Lantern Festival dates below!</p>
+      <div class="day-pills">
+        <span class="dpill">🙏 Lady Buddha Pagoda</span><span class="dpill">⛰️ Marble Mountain</span><span class="dpill">🛶 Coconut Forest Basket Boat</span><span class="dpill">🏛️ Hội An Ancient Town</span><span class="dpill">🌉 Japanese Bridge</span><span class="dpill">🏖️ Bang Beach</span><span class="dpill">🏮 Night Market</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="scene-grid g3">
+  <div class="scene-card tall sc10"><div class="scene-icon">🌉</div><div class="scene-dim"></div><div class="scene-label">Golden Bridge<div class="scene-sub">Giant stone hands · Ba Na Hills</div></div></div>
+  <div class="scene-card sc12"><div class="scene-icon">🏮</div><div class="scene-dim"></div><div class="scene-label">Hội An Ancient Town<div class="scene-sub">UNESCO · silk lanterns · old streets</div></div></div>
+  <div class="scene-card sc14"><div class="scene-icon">🛶</div><div class="scene-dim"></div><div class="scene-label">Bay Mau Coconut Forest<div class="scene-sub">Basket boat ride · lush waterways</div></div></div>
+</div>
+
+<div class="note-wrap">
+  <div class="note-box">
+    <strong>🎆 Đà Nẵng International Fireworks Festival 2025</strong> — Competition nights: <span class="fire">June 13 · June 20 · June 27</span> + grand finale <span class="fire">June 28</span>. Best viewing: Han River banks or Nguyễn Văn Linh Street. The <strong>Dragon Bridge</strong> also breathes real fire every Sat &amp; Sun at 9 PM — free from both riverbanks.<br><br>
+    <strong>🏮 Hội An Full Moon Lantern Festival</strong> — Electric lights turn off across the Ancient Town and hundreds of glowing silk lanterns float down the Thu Bon River. Dates: <strong>May 30 · June 13 · June 20 · June 27 · June 28</strong>. If your Day 7 falls on any of these — it's unforgettable.
+  </div>
+</div>
+
+<div class="days-wrap" style="padding-top:1px">
+  <div class="day-card">
+    <div class="day-num">DAY 8</div>
+    <div class="day-body">
+      <div class="day-head"><div class="day-title">Đà Nẵng → Flight to Phú Quốc</div><span class="day-chip">Transfer Day</span></div>
+      <div class="meals"><span class="meal b">Breakfast</span><span class="meal d">Dinner</span></div>
+      <p class="day-desc">Morning at leisure — final sunrise stroll along <strong>Bãi Biển Bằng (Bang Beach)</strong>, one of Vietnam's most beautiful white-sand beaches. Check out and transfer to Đà Nẵng Airport for your flight south to paradise island <strong>Phú Quốc</strong>. Upon arrival, check in to your island resort and enjoy the warm Gulf of Thailand breeze at sunset.</p>
+      <div class="day-pills">
+        <span class="dpill">🌅 Bang Beach Morning</span><span class="dpill">✈️ Da Nang → Phu Quoc</span><span class="dpill">🌴 Island Resort Check-in</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- ════ PHU QUOC ════ -->
+<div class="dest-hdr">
+  <div class="dest-bg g-phuquoc"></div><div class="dest-dim"></div>
+  <div class="dest-text">
+    <div class="dest-badge">Destination 05</div>
+    <div class="dest-title">Phú Quốc</div>
+    <div class="dest-sub">3 Nights · Days 8–11 &nbsp;|&nbsp; Pearl Island Paradise</div>
+  </div>
+</div>
+
+<div class="days-wrap">
+  <div class="day-card">
+    <div class="day-num">DAY 9</div>
+    <div class="day-body">
+      <div class="day-head"><div class="day-title">Grand World · VinWonders · Sunset Town</div><span class="day-chip">Entertainment Paradise</span></div>
+      <div class="meals"><span class="meal b">Breakfast</span><span class="meal d">Dinner</span></div>
+      <p class="day-desc">Explore <strong>Grand World Phú Quốc</strong> — a Venice-inspired entertainment city with gondola canals, international food lanes, cultural performances, and dazzling nightly light shows. Then unleash your inner adventurer at <strong>VinWonders Phú Quốc</strong> with world-class themed rides. Cap the evening at <strong>Sunset Town</strong> — photograph the dreamy <strong>Pencil Tower &amp; Clock Tower</strong>, climb the <strong>Dragon Staircase</strong>, stroll through <strong>Roman Square</strong>, and share a moment on the <strong>Kiss Bridge</strong> as the sun sinks into the Gulf.</p>
+      <div class="day-pills">
+        <span class="dpill">🎡 Grand World</span><span class="dpill">🎢 VinWonders</span><span class="dpill">🌇 Sunset Town</span><span class="dpill">🗼 Pencil &amp; Clock Tower</span><span class="dpill">🐉 Dragon Staircase</span><span class="dpill">🏛️ Roman Square</span><span class="dpill">🌉 Kiss Bridge</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-num">DAY 10</div>
+    <div class="day-body">
+      <div class="day-head"><div class="day-title">Vinpearl Safari · Thom Island · Sunset Sanato Beach Club</div><span class="day-chip">Wildlife &amp; Crystal Waters</span></div>
+      <div class="meals"><span class="meal b">Breakfast</span><span class="meal d">Dinner</span></div>
+      <p class="day-desc">Morning wildlife adventure at <strong>Vinpearl Safari Phú Quốc</strong> — Southeast Asia's largest open-air zoo with giraffes, hippos, zebras, and 150+ species roaming freely. Afternoon island hop to pristine <strong>Thom Island</strong> (An Thới Archipelago) for snorkelling in crystal-clear turquoise waters above vibrant coral. Return for golden-hour cocktails and a spectacular beachside dinner at <strong>Sunset Sanato Beach Club</strong>.</p>
+      <div class="day-pills">
+        <span class="dpill">🦒 Vinpearl Safari</span><span class="dpill">🏝️ Thom Island</span><span class="dpill">🤿 Snorkelling</span><span class="dpill">🐠 Coral Reef</span><span class="dpill">🍹 Sunset Sanato</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-num">DAY 11</div>
+    <div class="day-body">
+      <div class="day-head"><div class="day-title">Phú Quốc · Last Morning · Departure</div><span class="day-chip">Farewell Day</span></div>
+      <div class="meals"><span class="meal b">Breakfast</span></div>
+      <p class="day-desc">Savour the final morning — pick up last-minute souvenirs (<em>Phú Quốc is famous for black pepper, artisanal fish sauce, and freshwater pearls</em>) or simply relax by the pool one last time. Check out and transfer to <strong>Phú Quốc International Airport</strong> for your onward journey home. Hẹn gặp lại — until we meet again! 🙏</p>
+      <div class="day-pills">
+        <span class="dpill">🛍️ Night Market Souvenirs</span><span class="dpill">🌊 Last Beach Moment</span><span class="dpill">✈️ Departure</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="scene-grid g3">
+  <div class="scene-card tall sc18"><div class="scene-icon">🎡</div><div class="scene-dim"></div><div class="scene-label">Grand World · VinWonders<div class="scene-sub">Venice canals · world-class rides</div></div></div>
+  <div class="scene-card sc15"><div class="scene-icon">🦒</div><div class="scene-dim"></div><div class="scene-label">Vinpearl Safari<div class="scene-sub">SEA's largest open-air zoo</div></div></div>
+  <div class="scene-card sc16"><div class="scene-icon">🏝️</div><div class="scene-dim"></div><div class="scene-label">Thom Island<div class="scene-sub">Turquoise waters · coral snorkelling</div></div></div>
+</div>
+<div class="divider"></div>
+
+<!-- HOTELS -->
+<section class="hotels-bg">
+  <p class="sec-label">Curated Stays</p>
+  <h2 class="sec-title">Recommended Hotels</h2>
+  <div class="gold-rule"></div>
+  <div class="hotels-grid">
+    <div class="h-card h-sapa"><div class="h-banner"><div class="h-icon">🏔️</div></div><div class="h-body"><div class="h-city">Sapa · 2 Nights</div><div class="h-name">Silk Path Grand Resort &amp; Spa Sapa</div><div class="h-stars">★★★★★</div><div class="h-desc">Hillside resort with sweeping rice-terrace panoramas. Heated infinity pool, full spa, authentic Vietnamese dining — 5 mins from Cat Cat Village.</div><div class="h-price">~₹8,000–15,000/night &nbsp;·&nbsp; Alt: Sapa Panorama Hotel ★★★★ (~₹4,500)</div></div></div>
+    <div class="h-card h-hanoi"><div class="h-banner"><div class="h-icon">🏛️</div></div><div class="h-body"><div class="h-city">Hanoi · 1 Night</div><div class="h-name">Sofitel Legend Metropole Hanoi</div><div class="h-stars">★★★★★</div><div class="h-desc">Iconic 1901 French colonial landmark, 2 min walk from Hoan Kiem Lake. Legendary bar, legendary service, legendary location.</div><div class="h-price">~₹18,000–35,000/night &nbsp;·&nbsp; Alt: La Siesta Premium ★★★★ (~₹5,000)</div></div></div>
+    <div class="h-card h-halong"><div class="h-banner"><div class="h-icon">⛵</div></div><div class="h-body"><div class="h-city">Hạ Long Bay · 1 Night Cruise</div><div class="h-name">Paradise Elegance Cruise</div><div class="h-stars">★★★★★</div><div class="h-desc">Award-winning boutique cruise — en-suite cabins, sundeck, cooking class, kayaking, gourmet seafood meals all included.</div><div class="h-price">~₹18,000–28,000/person &nbsp;·&nbsp; Alt: Indochine Premium ★★★★ (~₹12,000)</div></div></div>
+    <div class="h-card h-danang"><div class="h-banner"><div class="h-icon">🌊</div></div><div class="h-body"><div class="h-city">Đà Nẵng · 3 Nights</div><div class="h-name">InterContinental Danang Sun Peninsula</div><div class="h-stars">★★★★★</div><div class="h-desc">Cascading down Sơn Trà Peninsula cliffs into a private cove — among Asia's finest resorts. Infinity pools, fine dining, UNESCO-recognized architecture.</div><div class="h-price">~₹25,000–50,000/night &nbsp;·&nbsp; Alt: Fusion Maia (all-spa-inclusive) (~₹18,000)</div></div></div>
+    <div class="h-card h-phuquoc"><div class="h-banner"><div class="h-icon">🌴</div></div><div class="h-body"><div class="h-city">Phú Quốc · 3 Nights</div><div class="h-name">JW Marriott Phu Quoc Emerald Bay</div><div class="h-stars">★★★★★</div><div class="h-desc">Vietnam's most fantastical resort — designed as a faux 1920s French university. Multiple pools, private beach, 10+ restaurants, walking distance to Sunset Town.</div><div class="h-price">~₹20,000–40,000/night &nbsp;·&nbsp; Alt: Vinpearl Resort ★★★★★ (~₹12,000)</div></div></div>
+    <div class="h-card h-tip"><div class="h-banner"><div class="h-icon">📌</div></div><div class="h-body"><div class="h-city">Booking Strategy · All Cities</div><div class="h-name">Key Booking Tips</div><div class="h-stars" style="color:var(--gold)">⚠️ Act Early</div><div class="h-desc">Book Đà Nẵng hotel <strong>3–4 months ahead</strong> for June fireworks — rooms sell out completely. Reserve a Han River-view restaurant for fireworks dinner by <strong>early May</strong>. All hotels have Indian restaurant referrals.</div><div class="h-price">Avian Experiences can pre-arrange daily Indian restaurant bookings at all stops.</div></div></div>
+  </div>
+</section>
+
+<!-- BUDGET -->
+<section class="budget-bg">
+  <p class="sec-label" style="color:var(--gold2)">Cost Overview</p>
+  <h2 class="sec-title" style="color:#fff;font-family:'Playfair Display',serif;font-weight:400">Budget at a Glance</h2>
+  <div class="gold-rule" style="margin:1rem 0 0"></div>
+  <table class="budget-table">
+    <thead><tr><th>Component</th><th>Group A (4 adults)</th><th>Group B (6A+1C)</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>✈️ Flights</td><td>~₹27,000/person</td><td>~₹27,000/person</td><td>Book now — AMD→HAN + PQC→AMD</td></tr>
+      <tr><td>🏨 Hotels (3★)</td><td>~₹18,000/person</td><td>~₹16,000/person</td><td>Upgrade to 4★ adds ~₹10,000/person</td></tr>
+      <tr><td>🎟️ Activities &amp; Tickets</td><td>~₹26,000/person</td><td>~₹24,000/person</td><td>Fansipan, Ba Na, VinWonders, Safari, Halong cruise</td></tr>
+      <tr><td>🚐 Transfers</td><td>~₹14,000/person</td><td>~₹12,000/person</td><td>All inter-city + domestic flights</td></tr>
+      <tr><td>🍛 Meals</td><td>~₹12,000/person</td><td>~₹11,500/person</td><td>Breakfast + dinner most days</td></tr>
+      <tr><td>🎆 Optional &amp; Fireworks</td><td>~₹4,000/person</td><td>~₹4,000/person</td><td>River-view restaurant + transport</td></tr>
+      <tr class="total"><td>Total (3★ Hotels)</td><td>~₹1,01,000/person</td><td>~₹94,500/person</td><td>Comfortable baseline</td></tr>
+      <tr class="total"><td>Total (4★ Hotels)</td><td>~₹1,11,000–1,25,000</td><td>~₹1,04,500–1,20,000</td><td>Fits ₹1.25–1.30L target ✓</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- TIPS -->
+<section class="tips-bg">
+  <p class="sec-label" style="color:var(--gold)">Before You Go</p>
+  <h2 class="sec-title" style="color:#fff;font-family:'Playfair Display',serif;font-weight:400">Essential Tips</h2>
+  <div class="tips-grid">
+    <div class="tip"><div class="tip-icon">📋</div><div class="tip-title">Visa</div><div class="tip-body">Indian passport holders apply for Vietnam e-Visa online at evisa.xuatnhapcanh.gov.vn. Valid 90 days, single or multiple entry. Apply 5–7 days before departure.</div></div>
+    <div class="tip"><div class="tip-icon">🪙</div><div class="tip-title">Currency</div><div class="tip-body">Vietnamese Đồng (VND). ₹1 ≈ 290 VND. ATMs everywhere. USD accepted at major resorts. Carry cash for local markets.</div></div>
+    <div class="tip"><div class="tip-icon">🌡️</div><div class="tip-title">Weather in June</div><div class="tip-body">Sapa: cool 15–22°C — pack a light jacket. Hanoi: hot &amp; humid 32°C. Da Nang: hot 33°C, brief showers. Phu Quoc: wet season starts but mornings are usually sunny.</div></div>
+    <div class="tip"><div class="tip-icon">🎆</div><div class="tip-title">Fireworks Festival</div><div class="tip-body">Da Nang Fireworks: June 13, 20, 27 + grand finale June 28. Book Han River-view spots or arrive 2 hrs early. Dragon Bridge fire: every Sat &amp; Sun 9 PM.</div></div>
+    <div class="tip"><div class="tip-icon">🏮</div><div class="tip-title">Hội An Lantern Festival</div><div class="tip-body">Full moon festival: May 30, June 13, 20, 27, 28. Ancient Town lights off — silk lanterns float down the Thu Bon River. Unmissable.</div></div>
+    <div class="tip"><div class="tip-icon">🧳</div><div class="tip-title">Packing</div><div class="tip-body">Light cotton clothes + warm layer for Sapa. Comfortable walking shoes, SPF 50+ sunscreen, mosquito repellent, small day-pack, universal adapter (Type A/C).</div></div>
+    <div class="tip"><div class="tip-icon">✈️</div><div class="tip-title">Domestic Flights</div><div class="tip-body">Book Hanoi→Da Nang and Da Nang→Phu Quoc with VietJet, Vietnam Airlines, or Bamboo Airways. Book 4–6 weeks ahead for best prices.</div></div>
+    <div class="tip"><div class="tip-icon">📱</div><div class="tip-title">SIM Card</div><div class="tip-body">Pick up a Viettel or Vietnamobile SIM at Hanoi Airport — ~₹350 for 10 GB/30 days. Excellent 4G even in Sapa highlands.</div></div>
+  </div>
+</section>
+
+<footer>
+  <p>Crafted with ♥ for your <span>Vietnam Dream Journey</span> &nbsp;·&nbsp; 10 Nights · 11 Days · 5 Destinations</p>
+  <p style="margin-top:.5rem">Reference: <span>Avian Experiences · avianexperiences.com</span></p>
+</footer>
+</body>
+</html>

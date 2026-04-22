@@ -23,6 +23,15 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--ink);ov
   text-align:center;overflow:hidden;
   background:linear-gradient(160deg,#062020 0%,#0d3535 30%,#1a5050 55%,#0e2a1a 100%);
 }
+.hero-image{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 38%;
+  opacity:.52;
+}
 .hero::before{
   content:'';position:absolute;inset:0;pointer-events:none;
   background:
@@ -130,6 +139,29 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--ink);ov
 .sc17{background:linear-gradient(145deg,#180a02,#3a1c06,#6a380e)}
 .sc18{background:linear-gradient(160deg,#051028,#0a2048,#183880)}
 
+/* location images mapped by destination */
+.dest-bg{
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+.g-sapa{background-image:linear-gradient(145deg,rgba(15,48,32,.55),rgba(10,37,21,.45)),url('./assets/locations/sapa.svg')}
+.g-hanoi{background-image:linear-gradient(145deg,rgba(26,10,5,.58),rgba(74,26,8,.42)),url('./assets/locations/hanoi.svg')}
+.g-halong{background-image:linear-gradient(145deg,rgba(4,24,40,.52),rgba(14,56,88,.42)),url('./assets/locations/halong.svg')}
+.g-danang{background-image:linear-gradient(145deg,rgba(5,24,32,.5),rgba(10,56,72,.42)),url('./assets/locations/danang-hoian.svg')}
+.g-phuquoc{background-image:linear-gradient(145deg,rgba(5,15,40,.5),rgba(16,80,136,.42)),url('./assets/locations/phuquoc.svg')}
+
+.scene-card{
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+.sc1,.sc2,.sc3,.sc4{background-image:linear-gradient(155deg,rgba(12,40,24,.35),rgba(26,85,48,.35)),url('./assets/locations/sapa.svg')}
+.sc5,.sc6,.sc7{background-image:linear-gradient(155deg,rgba(30,10,4,.35),rgba(90,32,10,.35)),url('./assets/locations/hanoi.svg')}
+.sc8,.sc9{background-image:linear-gradient(155deg,rgba(5,24,40,.34),rgba(24,104,128,.34)),url('./assets/locations/halong.svg')}
+.sc10,.sc11,.sc12,.sc13,.sc14{background-image:linear-gradient(155deg,rgba(6,24,32,.34),rgba(16,96,112,.34)),url('./assets/locations/danang-hoian.svg')}
+.sc15,.sc16,.sc17,.sc18{background-image:linear-gradient(155deg,rgba(4,15,40,.36),rgba(24,56,128,.34)),url('./assets/locations/phuquoc.svg')}
+
 /* ─── DAY CARDS ─── */
 .days-wrap{background:#fff;padding:0 1.5rem 1.5rem}
 .day-card{display:flex;margin-top:2rem;border-radius:10px;overflow:hidden;box-shadow:0 2px 18px rgba(0,0,0,.07)}
@@ -210,6 +242,7 @@ footer span{color:var(--gold)}
 
 <!-- HERO -->
 <section class="hero">
+  <img class="hero-image" src="./assets/vietnam-hero.svg" alt="Vietnam landscape illustration">
   <div class="hero-glow"></div><div class="hero-glow"></div><div class="hero-glow"></div>
   <div class="hero-karst"></div>
   <div class="hero-content">
